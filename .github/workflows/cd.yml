@@ -9,7 +9,7 @@ jobs:
   cd:
     strategy:
       matrix:
-        platform: [linux/amd64, linux/arm64]
+        platform: [amd64, arm64]
 
     name: Deploy to Docker Hub for ${{ matrix.platform }}
     runs-on: ubuntu-latest
@@ -29,5 +29,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: kmc7468/wheel-seminar-cicd:${{ github.sha }}/${{ matrix.platform }}, kmc7468/wheel-seminar-cicd:latest
-          platforms: ${{ matrix.platform }}
+          tags: kmc7468/wheel-seminar-cicd:${{ github.sha }}_${{ matrix.platform }}, kmc7468/wheel-seminar-cicd:latest_${{ matrix.platform }}
+          platforms: linux/${{ matrix.platform }}
