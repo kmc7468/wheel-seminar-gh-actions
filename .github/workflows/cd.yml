@@ -29,5 +29,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: kmc7468/wheel-seminar-cicd:${{ github.sha }}, kmc7468/wheel-seminar-cicd:latest
+          tags: kmc7468/wheel-seminar-cicd:${{ github.sha }}/${{ matrix.platform }}, kmc7468/wheel-seminar-cicd:latest
           platforms: ${{ matrix.platform }}
